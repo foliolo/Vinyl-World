@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "184478022264",
+    "project_id": "vinyl-world",
+    "storage_bucket": "vinyl-world.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:184478022264:android:c355cdd5c2c9deac92cb8d",
+        "android_client_info": {
+          "package_name": "com.example.vinylworld"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "184478022264-v8g5d6dabt25samkf1t5hfah6ucuvigs.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD6Ecmhig7KkXdkJ11wLiHamMUCnxTmRis"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "184478022264-v8g5d6dabt25samkf1t5hfah6ucuvigs.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

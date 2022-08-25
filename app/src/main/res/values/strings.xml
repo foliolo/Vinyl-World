@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">Vinyl World</string>
+    <string name="logo">logo</string>
+    <string name="login_icon">login icon</string>
+    <string name="email">Email</string>
+    <string name="contraseña1">Contraseña</string>
+    <string name="iniciar_sesion">Iniciar sesión</string>
+    <string name="registro">Registro</string>
+    <string name="version_1_0">Version 1.0</string>
+    <string name="olvidaste_tu_contraseña">Olvidaste tu contraseña?</string>
+    <string name="logo_registro">logo registro</string>
+    <string name="email_registro">Email</string>
+    <string name="nombre_y_apellidos">Nombre y apellidos</string>
+    <string name="domicilio">Domicilio</string>
+    <string name="registrarse">Registrarse</string>
+    <string name="ciudad">Ciudad</string>
+    <string name="provincia">Provincia</string>
+    <string name="codio_postal">Codigo postal</string>
+    <string name="confirmar_contraseña">Confirmar contraseña</string>
+    <string name="contraseña_registro1">Contraseña</string>
+    <string name="recuperar">Recuperar</string>
+    <string name="bienvenido">BIENVENIDO!</string>
+    <string name="introduce_tu_email">Introduce tu email</string>
+    <string name="flecha_atras">flecha_atras</string>
+    <string name="categorias">categorias</string>
+</resources>
