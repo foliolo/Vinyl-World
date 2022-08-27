@@ -1,209 +1,170 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".RegisterActivity">
+    android:layout_height="wrap_content"
+    tools:context=".Registro">
 
-    <ImageView
-        android:id="@+id/image_registrarse"
-        android:layout_width="92dp"
-        android:layout_height="94dp"
-        android:layout_marginStart="125dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="125dp"
-        android:layout_marginBottom="5dp"
-        android:contentDescription="@string/logo_registro"
-        android:foregroundGravity="center"
-        app:layout_constraintBottom_toTopOf="@+id/TextPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/icono_registro" />
-
-    <EditText
-        android:id="@+id/TextPersonName"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="25dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="25dp"
-        android:layout_marginBottom="5dp"
-        android:height="43dp"
-        android:drawableStart="@drawable/ic_account_circle"
-        android:ems="10"
-        android:foregroundGravity="center_vertical"
-        android:foregroundTint="#9E9E9E"
-        android:hint="@string/nombre_y_apellidos"
-        android:importantForAutofill="no"
-        android:inputType="textPersonName"
-        android:textColorHint="#78909C"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/TextEmailAddress"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/image_registrarse" />
+        android:layout_marginHorizontal="36dp"
+        android:orientation="vertical">
 
-    <EditText
-        android:id="@+id/TextEmailAddress"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="25dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginEnd="25dp"
-        android:layout_marginBottom="5dp"
-        android:height="43dp"
-        android:drawableStart="@drawable/ic_email"
-        android:ems="10"
-        android:foregroundGravity="center_vertical"
-        android:foregroundTint="#9E9E9E"
-        android:hint="@string/email_registro"
-        android:importantForAutofill="no"
-        android:inputType="textEmailAddress"
-        android:textColorHint="#78909C"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/TextPassword"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/TextPersonName" />
+        <ImageView
+            android:id="@+id/image_registrarse"
+            android:layout_width="115dp"
+            android:layout_height="109dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="5dp"
+            android:contentDescription="@string/logo_registro"
+            android:foregroundGravity="center"
+            app:srcCompat="@drawable/icono_registro" />
 
-    <EditText
-        android:id="@+id/TextPassword"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="25dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginEnd="25dp"
-        android:layout_marginBottom="5dp"
-        android:height="43dp"
-        android:drawableStart="@drawable/ic_lock"
-        android:ems="10"
-        android:foregroundGravity="center_vertical"
-        android:foregroundTint="#9E9E9E"
-        android:hint="@string/contraseña_registro1"
-        android:importantForAutofill="no"
-        android:inputType="textPassword"
-        android:textColorHint="#78909C"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/TextPostalAddress"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/TextEmailAddress"
-        tools:ignore="DuplicateSpeakableTextCheck" />
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/TextPersonName"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:hint="@string/nombre_y_apellidos"
+            app:startIconDrawable="@drawable/ic_account_circle"
+            app:startIconTint="@color/black">
 
-    <EditText
-        android:id="@+id/TextPostalAddress"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="25dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginEnd="25dp"
-        android:layout_marginBottom="5dp"
-        android:height="43dp"
-        android:drawableStart="@drawable/ic_house"
-        android:ems="10"
-        android:foregroundGravity="center_vertical"
-        android:foregroundTint="#9E9E9E"
-        android:hint="@string/domicilio"
-        android:importantForAutofill="no"
-        android:inputType="textPostalAddress"
-        android:textColorHint="#78909C"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/TextPostalAddress2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/TextPassword" />
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:textColorHint="#757575"
+                tools:ignore="TextContrastCheck" />
+        </com.google.android.material.textfield.TextInputLayout>
 
-    <EditText
-        android:id="@+id/TextPostalAddress2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="25dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginEnd="25dp"
-        android:layout_marginBottom="5dp"
-        android:height="43dp"
-        android:drawableStart="@drawable/ic_city"
-        android:ems="10"
-        android:foregroundGravity="center_vertical"
-        android:foregroundTint="#9E9E9E"
-        android:hint="@string/ciudad"
-        android:importantForAutofill="no"
-        android:inputType="textPostalAddress"
-        android:textColorHint="#78909C"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/TextPostalAddress3"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.504"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/TextPostalAddress" />
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/TextEmailAddress"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            app:startIconDrawable="@drawable/ic_email"
+            app:startIconTint="@color/black">
 
-    <EditText
-        android:id="@+id/TextPostalAddress3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="25dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginEnd="25dp"
-        android:layout_marginBottom="5dp"
-        android:height="43dp"
-        android:drawableStart="@drawable/ic_region"
-        android:ems="10"
-        android:foregroundGravity="center_vertical"
-        android:foregroundTint="#9E9E9E"
-        android:hint="@string/provincia"
-        android:importantForAutofill="no"
-        android:inputType="textPostalAddress"
-        android:textColorHint="#78909C"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/TextPostalAddress4"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/TextPostalAddress2" />
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/email_registro"
+                android:importantForAutofill="no"
+                android:inputType="textEmailAddress"
+                android:textColorHint="#757575"
+                tools:ignore="TextContrastCheck" />
+        </com.google.android.material.textfield.TextInputLayout>
 
-    <EditText
-        android:id="@+id/TextPostalAddress4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="25dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginEnd="25dp"
-        android:layout_marginBottom="10dp"
-        android:height="43dp"
-        android:drawableStart="@drawable/ic_codigo_postal"
-        android:ems="10"
-        android:foregroundGravity="center_vertical"
-        android:foregroundTint="#9E9E9E"
-        android:hint="@string/codio_postal"
-        android:importantForAutofill="no"
-        android:inputType="textPostalAddress"
-        android:textColorHint="#78909C"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/buttonRegistrarse"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.504"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/TextPostalAddress3" />
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/TextPassword"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            app:startIconDrawable="@drawable/ic_lock"
+            app:startIconTint="@color/black">
 
-    <Button
-        android:id="@+id/buttonRegistrarse"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="25dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="25dp"
-        android:layout_marginBottom="20dp"
-        android:foregroundGravity="center_vertical"
-        android:text="@string/registrarse"
-        android:textColor="@color/black"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/TextPostalAddress4" />
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/password"
+                android:importantForAutofill="no"
+                android:inputType="textPassword"
+                android:textColorHint="#757575"
+                tools:ignore="TextContrastCheck" />
+        </com.google.android.material.textfield.TextInputLayout>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/TextPostalAddress"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            app:startIconDrawable="@drawable/ic_house"
+            app:startIconTint="@color/black">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/calle_portal_y_piso"
+                android:importantForAutofill="no"
+                android:inputType="textPostalAddress"
+                android:textColorHint="#757575"
+                tools:ignore="TextContrastCheck" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/TextPostalAddress2"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            app:startIconDrawable="@drawable/ic_city"
+            app:startIconTint="@color/black">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/ciudad"
+                android:importantForAutofill="no"
+                android:inputType="textPostalAddress"
+                android:textColorHint="#757575"
+                tools:ignore="TextContrastCheck" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/TextPostalAddress3"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            app:startIconDrawable="@drawable/ic_region"
+            app:startIconTint="@color/black">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/provincia"
+                android:importantForAutofill="no"
+                android:inputType="textPostalAddress"
+                android:textColorHint="#757575"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/TextPostalAddress4"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            app:startIconDrawable="@drawable/ic_codigo_postal"
+            app:startIconTint="@color/black">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/codigo_postal"
+                android:importantForAutofill="no"
+                android:inputType="textPostalAddress"
+                android:textColorHint="#757575" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:id="@+id/buttonRegistrarse"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:foregroundGravity="center_vertical"
+            android:text="@string/registrarse"
+            android:textColor="@color/black"
+            android:textSize="16sp" />
+
+    </LinearLayout>
+
+</ScrollView>
