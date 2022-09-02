@@ -73,7 +73,7 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/password"
+                android:hint="@string/contraseña1"
                 android:importantForAutofill="no"
                 android:inputType="textPassword"
                 android:textColorHint="#757575"
@@ -92,7 +92,7 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/calle_portal_y_piso"
+                android:hint="@string/domicilio"
                 android:importantForAutofill="no"
                 android:inputType="textPostalAddress"
                 android:textColorHint="#757575"
@@ -148,7 +148,7 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/codigo_postal"
+                android:hint="@string/codio_postal"
                 android:importantForAutofill="no"
                 android:inputType="textPostalAddress"
                 android:textColorHint="#757575" />

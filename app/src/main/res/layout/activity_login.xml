@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Login">
+    tools:context=".LoginActivity">
 
     <ImageView
         android:id="@+id/imageView"
@@ -14,7 +14,6 @@
         android:layout_marginTop="150dp"
         android:layout_marginEnd="100dp"
         android:layout_marginBottom="20dp"
-        android:contentDescription="@string/login_icon"
         app:layout_constraintBottom_toTopOf="@+id/TextMail"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.494"
@@ -43,7 +42,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/email_registro"
-            android:importantForAutofill="no"
             android:inputType="textEmailAddress"
             android:textColorHint="#757575"
             tools:ignore="NotSibling,TextContrastCheck" />
@@ -68,13 +66,12 @@
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/password"
-            android:importantForAutofill="no"
+            android:hint="@string/contraseña1"
             android:inputType="textPassword"
             android:textColorHint="#757575"
             tools:ignore="TextContrastCheck" />
-    </com.google.android.material.textfield.TextInputLayout>
 
+    </com.google.android.material.textfield.TextInputLayout>
 
     <Button
         android:id="@+id/bottonIniarSesion"

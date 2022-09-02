@@ -128,8 +128,3 @@ class Registro : AppCompatActivity() {
         startActivity(homeIntent)
     }
 }
-
-
-
-
-

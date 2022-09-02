@@ -17,7 +17,6 @@ class ForgotPassword : AppCompatActivity() {
     // Firebase auth
     private lateinit var firebaseAuth: FirebaseAuth
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityForgotpasswordBinding.inflate(layoutInflater)
@@ -40,7 +39,7 @@ class ForgotPassword : AppCompatActivity() {
     private fun validateData() {
 
         // Get data
-        email = binding.emailRecuperar.text.toString().trim()
+        email = binding.emailRecuperar.editText?.text.toString().trim()
 
         // Validate data
         if (email.isEmpty()) {
@@ -63,6 +62,5 @@ class ForgotPassword : AppCompatActivity() {
 
             }
     }
-
 }
 
