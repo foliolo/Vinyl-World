@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LoginActivity">
+    tools:context=".Login">
 
     <ImageView
         android:id="@+id/imageView"
@@ -22,48 +22,59 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/login_icon" />
 
-    <EditText
+    <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/TextMail"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
         android:layout_width="300dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="35dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="50dp"
         android:layout_marginTop="20dp"
-        android:layout_marginEnd="35dp"
-        android:layout_marginBottom="10dp"
-        android:drawableStart="@drawable/ic_email"
-        android:ems="10"
-        android:hint="@string/email"
-        android:importantForAutofill="no"
-        android:inputType="textPersonName"
-        android:textSize="20sp"
-        app:iconTint="@color/holo_green_light"
+        android:layout_marginEnd="50dp"
+        android:layout_marginBottom="20dp"
         app:layout_constraintBottom_toTopOf="@+id/TextPasswordLogin"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.512"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView"
-        tools:ignore="NotSibling" />
+        app:startIconDrawable="@drawable/ic_email"
+        app:startIconTint="@color/black"
+        tools:ignore="MissingConstraints">
 
-    <EditText
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/email_registro"
+            android:importantForAutofill="no"
+            android:inputType="textEmailAddress"
+            android:textColorHint="#757575"
+            tools:ignore="NotSibling,TextContrastCheck" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/TextPasswordLogin"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
         android:layout_width="300dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="35dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="35dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="50dp"
         android:layout_marginBottom="20dp"
-        android:drawableStart="@drawable/ic_lock"
-        android:ems="10"
-        android:hint="@string/contraseña1"
-        android:importantForAutofill="no"
-        android:inputType="textPassword"
-        android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/bottonIniarSesion"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.512"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/TextMail"
-        tools:ignore="TextContrastCheck" />
+        app:startIconDrawable="@drawable/ic_lock"
+        app:startIconTint="@color/black">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/password"
+            android:importantForAutofill="no"
+            android:inputType="textPassword"
+            android:textColorHint="#757575"
+            tools:ignore="TextContrastCheck" />
+    </com.google.android.material.textfield.TextInputLayout>
+
 
     <Button
         android:id="@+id/bottonIniarSesion"
