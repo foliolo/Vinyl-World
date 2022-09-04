@@ -32,13 +32,13 @@ class RegisterActivity : AppCompatActivity() {
         auth = Firebase.auth
         setup()
 
-        /*
+        
         // ValidateData validacion campos
         validateData()
-        */
+        
     }
 
-    /*
+    
     private fun validateData(): Boolean {
 
         val nombreyapellidos = binding.TextPersonName.editText?.text.toString()
@@ -57,20 +57,12 @@ class RegisterActivity : AppCompatActivity() {
         }
         return false
     }
-     */
+     
 
     private fun setup() {
         with(binding) {
             buttonRegistrarse.setOnClickListener {
                 when {
-                    TextUtils.isEmpty(TextPersonName.editText?.text.toString().trim { it <= ' ' }) -> {
-                        Toast.makeText(
-                            this@RegisterActivity,
-                            "Por favor ingrese un Nombre y Apellidos",
-                            Toast.LENGTH_SHORT
-                        ).show()
-                    }
-
                     TextUtils.isEmpty(TextEmailAddress.editText?.text.toString().trim { it <= ' ' }) -> {
                         Toast.makeText(
                             this@RegisterActivity,
@@ -86,39 +78,6 @@ class RegisterActivity : AppCompatActivity() {
                             Toast.LENGTH_SHORT
                         ).show()
                     }
-
-                    TextUtils.isEmpty(TextPostalAddress.editText?.text.toString().trim { it <= ' ' }) -> {
-                        Toast.makeText(
-                            this@RegisterActivity,
-                            "Por favor ingrese una Calle, portal y piso",
-                            Toast.LENGTH_SHORT
-                        ).show()
-                    }
-
-                    TextUtils.isEmpty(TextPostalAddress2.editText?.text.toString().trim { it <= ' ' }) -> {
-                        Toast.makeText(
-                            this@RegisterActivity,
-                            "Por favor ingrese una Ciudad",
-                            Toast.LENGTH_SHORT
-                        ).show()
-                    }
-
-                    TextUtils.isEmpty(TextPostalAddress3.editText?.text.toString().trim { it <= ' ' }) -> {
-                        Toast.makeText(
-                            this@RegisterActivity,
-                            "Por favor ingrese una Provincia",
-                            Toast.LENGTH_SHORT
-                        ).show()
-                    }
-
-                    TextUtils.isEmpty(TextPostalAddress4.editText?.text.toString().trim { it <= ' ' }) -> {
-                        Toast.makeText(
-                            this@RegisterActivity,
-                            "Por favor ingrese un Codigo postal",
-                            Toast.LENGTH_SHORT
-                        ).show()
-                    }
-
                     else -> {
                         val email: String = TextEmailAddress.editText?.text.toString().trim { it <= ' ' }
                         val password: String = TextPassword.editText?.text.toString().trim { it <= ' ' }
@@ -163,6 +122,7 @@ class RegisterActivity : AppCompatActivity() {
         startActivity(homeIntent)
     }
 }
+
 
 
 
