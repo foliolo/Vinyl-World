@@ -2,18 +2,16 @@ package com.example.vinylworld
 
 import android.content.Intent
 import android.os.Bundle
-import android.text.TextUtils
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.example.vinylworld.databinding.ActivityRegistroBinding
 import com.google.firebase.analytics.FirebaseAnalytics
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 
-class RegisterActivity : AppCompatActivity() {
+class Registro : AppCompatActivity() {
 
     private lateinit var binding: ActivityRegistroBinding
     private lateinit var auth: FirebaseAuth
@@ -32,13 +30,18 @@ class RegisterActivity : AppCompatActivity() {
         auth = Firebase.auth
         setup()
 
-        
-        // ValidateData validacion campos
-        validateData()
-        
+
+        // Boton registrarse 3 = Login
+        val boton3 = binding.buttonRegistrarse
+        boton3.setOnClickListener {
+            val nameValido = validateData()
+            if (nameValido) {
+                val intent = Intent(this, Login::class.java)
+                startActivity(intent)
+            }
+        }
     }
 
-    
     private fun validateData(): Boolean {
 
         val nombreyapellidos = binding.TextPersonName.editText?.text.toString()
@@ -57,47 +60,25 @@ class RegisterActivity : AppCompatActivity() {
         }
         return false
     }
-     
+
 
     private fun setup() {
-        with(binding) {
-            buttonRegistrarse.setOnClickListener {
-                when {
-                    TextUtils.isEmpty(TextEmailAddress.editText?.text.toString().trim { it <= ' ' }) -> {
-                        Toast.makeText(
-                            this@RegisterActivity,
-                            "Por favor ingrese un E-mail",
-                            Toast.LENGTH_SHORT
-                        ).show()
+        binding.buttonRegistrarse.setOnClickListener {
+            if (binding.TextEmailAddress.editText?.text.toString().isNotEmpty() && binding.TextPassword.editText?.text.toString().isNotEmpty()) {
+
+                FirebaseAuth.getInstance()
+                    .createUserWithEmailAndPassword(
+                        binding.TextEmailAddress.editText.toString(),
+                        binding.TextPassword.editText.toString()
+                    ).addOnCompleteListener {
+
+                        if (it.isSuccessful) {
+                            showHome(it.result?.user?.email ?: "", ProviderType.BASIC)
+                        } else {
+                            showAlert()
+                        }
                     }
 
-                    TextUtils.isEmpty(TextPassword.editText?.text.toString().trim { it <= ' ' }) -> {
-                        Toast.makeText(
-                            this@RegisterActivity,
-                            "Por favor ingrese una Password",
-                            Toast.LENGTH_SHORT
-                        ).show()
-                    }
-                    else -> {
-                        val email: String = TextEmailAddress.editText?.text.toString().trim { it <= ' ' }
-                        val password: String = TextPassword.editText?.text.toString().trim { it <= ' ' }
-
-                        FirebaseAuth.getInstance().createUserWithEmailAndPassword(email, password)
-                            .addOnCompleteListener { task ->
-                                if (task.isSuccessful) {
-                                    val firebaseUser: FirebaseUser = task.result!!.user!!
-                                    showLogin(firebaseUser, email, ProviderType.BASIC)
-                                } else {
-                                    showAlert()
-                                }
-                            }
-                        Toast.makeText(
-                            baseContext,
-                            "El registro fue exitoso",
-                            Toast.LENGTH_SHORT
-                        ).show()
-                    }
-                }
             }
         }
     }
@@ -112,15 +93,17 @@ class RegisterActivity : AppCompatActivity() {
     }
 
 
-    private fun showLogin(user: FirebaseUser, email: String, provider: ProviderType) {
+    private fun showHome(email: String, provider: ProviderType) {
 
-        val homeIntent = Intent(this, LoginActivity::class.java).apply {
-            putExtra("user", user)
+        val homeIntent = Intent(this, Login::class.java).apply {
             putExtra("email", email)
             putExtra("provider", provider.name)
         }
+
         startActivity(homeIntent)
+
     }
+
 }
 
 
