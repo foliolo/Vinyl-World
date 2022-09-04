@@ -32,22 +32,24 @@ class RegisterActivity : AppCompatActivity() {
         auth = Firebase.auth
         setup()
 
+        /*
         // ValidateData validacion campos
         validateData()
-
+        */
     }
 
+    /*
     private fun validateData(): Boolean {
 
-        val nombreyapellidos = binding.TextPersonName.text
-        val email = binding.TextEmailAddress.text
-        val password = binding.TextPassword.text
-        val domicilio = binding.TextPostalAddress.text
-        val ciudad = binding.TextPostalAddress2.text
-        val provincia = binding.TextPostalAddress3.text
-        val codigopostal = binding.TextPostalAddress4.text
+        val nombreyapellidos = binding.TextPersonName.editText?.text.toString()
+        val email = binding.TextEmailAddress.editText?.text.toString()
+        val password = binding.TextPassword.editText?.text.toString()
+        val calleportalypiso = binding.TextPostalAddress.editText?.text.toString()
+        val ciudad = binding.TextPostalAddress2.editText?.text.toString()
+        val provincia = binding.TextPostalAddress3.editText?.text.toString()
+        val codigopostal = binding.TextPostalAddress4.editText?.text.toString()
 
-        if (nombreyapellidos.isEmpty() || email.isEmpty() || password.isEmpty() || domicilio.isEmpty() || ciudad.isEmpty() || provincia.isEmpty() || codigopostal.isEmpty()) {
+        if (nombreyapellidos.isEmpty() || email.isEmpty() || password.isEmpty() || calleportalypiso.isEmpty() || ciudad.isEmpty() || provincia.isEmpty() || codigopostal.isEmpty()) {
             Toast.makeText(this, "Por favor rellene todos los campos", Toast.LENGTH_SHORT)
                 .show()
         } else {
@@ -55,12 +57,21 @@ class RegisterActivity : AppCompatActivity() {
         }
         return false
     }
+     */
 
     private fun setup() {
         with(binding) {
             buttonRegistrarse.setOnClickListener {
                 when {
-                    TextUtils.isEmpty(TextEmailAddress.text.toString().trim { it <= ' ' }) -> {
+                    TextUtils.isEmpty(TextPersonName.editText?.text.toString().trim { it <= ' ' }) -> {
+                        Toast.makeText(
+                            this@RegisterActivity,
+                            "Por favor ingrese un Nombre y Apellidos",
+                            Toast.LENGTH_SHORT
+                        ).show()
+                    }
+
+                    TextUtils.isEmpty(TextEmailAddress.editText?.text.toString().trim { it <= ' ' }) -> {
                         Toast.makeText(
                             this@RegisterActivity,
                             "Por favor ingrese un E-mail",
@@ -68,7 +79,7 @@ class RegisterActivity : AppCompatActivity() {
                         ).show()
                     }
 
-                    TextUtils.isEmpty(TextPassword.text.toString().trim { it <= ' ' }) -> {
+                    TextUtils.isEmpty(TextPassword.editText?.text.toString().trim { it <= ' ' }) -> {
                         Toast.makeText(
                             this@RegisterActivity,
                             "Por favor ingrese una Password",
@@ -76,9 +87,41 @@ class RegisterActivity : AppCompatActivity() {
                         ).show()
                     }
 
+                    TextUtils.isEmpty(TextPostalAddress.editText?.text.toString().trim { it <= ' ' }) -> {
+                        Toast.makeText(
+                            this@RegisterActivity,
+                            "Por favor ingrese una Calle, portal y piso",
+                            Toast.LENGTH_SHORT
+                        ).show()
+                    }
+
+                    TextUtils.isEmpty(TextPostalAddress2.editText?.text.toString().trim { it <= ' ' }) -> {
+                        Toast.makeText(
+                            this@RegisterActivity,
+                            "Por favor ingrese una Ciudad",
+                            Toast.LENGTH_SHORT
+                        ).show()
+                    }
+
+                    TextUtils.isEmpty(TextPostalAddress3.editText?.text.toString().trim { it <= ' ' }) -> {
+                        Toast.makeText(
+                            this@RegisterActivity,
+                            "Por favor ingrese una Provincia",
+                            Toast.LENGTH_SHORT
+                        ).show()
+                    }
+
+                    TextUtils.isEmpty(TextPostalAddress4.editText?.text.toString().trim { it <= ' ' }) -> {
+                        Toast.makeText(
+                            this@RegisterActivity,
+                            "Por favor ingrese un Codigo postal",
+                            Toast.LENGTH_SHORT
+                        ).show()
+                    }
+
                     else -> {
-                        val email: String = TextEmailAddress.text.toString().trim { it <= ' ' }
-                        val password: String = TextPassword.text.toString().trim { it <= ' ' }
+                        val email: String = TextEmailAddress.editText?.text.toString().trim { it <= ' ' }
+                        val password: String = TextPassword.editText?.text.toString().trim { it <= ' ' }
 
                         FirebaseAuth.getInstance().createUserWithEmailAndPassword(email, password)
                             .addOnCompleteListener { task ->
