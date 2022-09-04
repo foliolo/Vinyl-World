@@ -13,7 +13,7 @@ import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import java.util.regex.Pattern
 
-class LoginActivity : AppCompatActivity() {
+class Login : AppCompatActivity() {
 
     private lateinit var binding: ActivityLoginBinding
     private lateinit var auth: FirebaseAuth
@@ -24,7 +24,7 @@ class LoginActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         val email = intent.getStringExtra("email")
-        binding.TextMail.setText(email)
+        binding.TextMail.editText?.setText(email)
 
         auth = Firebase.auth
 
@@ -39,7 +39,7 @@ class LoginActivity : AppCompatActivity() {
 
         //Boton de registro 1
         binding.buttonRegistro.setOnClickListener {
-            val intent = Intent(this, RegisterActivity::class.java)
+            val intent = Intent(this, Registro::class.java)
             startActivity(intent)
         }
 
@@ -52,8 +52,8 @@ class LoginActivity : AppCompatActivity() {
 
     private fun btnLogin() {
         with(binding) {
-            val email: String = TextMail.text.toString().trim { it <= ' ' }
-            val password: String = TextPasswordLogin.text.toString().trim { it <= ' ' }
+            val email: String = TextMail.editText?.text.toString().trim { it <= ' ' }
+            val password: String = TextPasswordLogin.editText?.text.toString().trim { it <= ' ' }
 
             if (login(email, password)) {
                 auth.signInWithEmailAndPassword(
